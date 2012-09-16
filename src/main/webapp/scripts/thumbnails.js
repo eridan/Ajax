@@ -1,16 +1,21 @@
 window.onload = initPage;
 
 function initPage() {
-	thumbs = document.getElementById("thumbnailPane").getElementsByTagName("img");
-	
-	for(var i=0; i<thumbs.length; i++) {
-		image = thumbs[i];
-		image.onclick = function() {
-			detailUrl = 'images/'+ this.title +'-detail.jpg';
-			document.getElementById("itemDetail").src = detailUrl;
-			getDetails(this.title);
-		}
-	}
+  // find the thumbnails on the page
+  thumbs = document.getElementById("thumbnailPane").getElementsByTagName("img");
+
+  // set the handler for each image
+  for (var i = 0; i < thumbs.length; i++) {
+    image = thumbs[i];
+    
+    // create the onclick function
+    image.onclick = function() {
+      // find the image name
+      detailURL = 'images/' + this.title + '-detail.jpg';
+      document.getElementById("itemDetail").src = detailURL;
+      getDetails(this.title);
+    }
+  }
 }
 
 function createRequest() {
@@ -30,17 +35,23 @@ function createRequest() {
   return request;
 }
 
-
 function getDetails(itemName) {
-	request = createRequest;
-	if(request == null) {
-		alert('Ooopsie! Sorry, I am unable to create a Request Object :(');
-		return;
-	}
-	
-	var url = "getDetails.php?ImageId=" + escape(itemName);
-	request.open("GET",url,true);
-	request.onreadystatechange = displayDetails;
-	request.send(null);
+  request = createRequest();
+  if (request == null) {
+    alert("Unable to create request");
+    return;
+  }
+  var url= "getDetails.do?ImageID=" + escape(itemName);
+  request.open("GET", url, true);
+  request.onreadystatechange = displayDetails;
+  request.send(null);
+}
 
+function displayDetails() {
+  if (request.readyState == 4) {
+    if (request.status == 200) {
+      detailDiv = document.getElementById("description");
+      detailDiv.innerHTML = request.responseText;
+    }
+  }
 }

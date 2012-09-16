@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginLogoutController {
-
+    
     @RequestMapping(method = RequestMethod.GET, value = "/index.do")
-    public void idex() {
+    public void index() {
     }
 }
