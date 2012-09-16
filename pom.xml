@@ -15,6 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springVersion>3.1.2.RELEASE</springVersion>
         <springSecurityVersion>3.1.2.RELEASE</springSecurityVersion>
+        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>
 
     <dependencies>
