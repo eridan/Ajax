@@ -8,6 +8,9 @@
 </head>
 
 <body>
+    <div id="nav">
+        <a href="chapter2.do">Chapter 2</a>
+    </div>
   <div id="wrapper">
     <img src="images/logotypeLeft.png" alt="Rob's Rock 'n' Roll Memorabilia" 
          width="394" height="91" id="logotypeLeft" />
