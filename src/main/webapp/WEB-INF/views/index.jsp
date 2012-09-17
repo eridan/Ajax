@@ -35,6 +35,7 @@
 
     <div id="detailsPane">
       <img src="images/blank-detail.jpg" width="346" height="153" id="itemDetail" />
+      <div id="description"></div>
     </div>
   </div>
 </body>
